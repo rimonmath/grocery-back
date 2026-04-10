@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GroceryModule } from './grocery/grocery.module';
 import { OrdersModule } from './orders/orders.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { OrdersModule } from './orders/orders.module';
       }),
     }),
     GroceryModule,
-    OrdersModule, // This handles the Controller and Service for you
+    OrdersModule,
+    UsersModule, // This handles the Controller and Service for you
   ],
   controllers: [], // Keep this empty
   providers: [], // Keep this empty
