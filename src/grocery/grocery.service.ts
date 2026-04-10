@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { MoreThan, Repository } from 'typeorm';
 import { GroceryItem } from './entities/grocery-item.entity';
 import { CreateGroceryItemDto } from './dto/create-grocery-item.dto';
 
@@ -45,5 +45,14 @@ export class GroceryService {
     }
 
     return await this.groceryRepository.save(item);
+  }
+
+  // Add to GroceryService
+  async findAllAvailable(): Promise<GroceryItem[]> {
+    return await this.groceryRepository.find({
+      where: {
+        inventoryCount: MoreThan(0),
+      },
+    });
   }
 }

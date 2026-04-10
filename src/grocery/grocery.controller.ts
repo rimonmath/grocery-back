@@ -37,4 +37,9 @@ export class GroceryController {
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.groceryService.remove(id);
   }
+
+  @Get('/items')
+  findAllAvailable() {
+    return this.groceryService.findAllAvailable();
+  }
 }

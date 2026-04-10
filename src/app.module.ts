@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GroceryModule } from './grocery/grocery.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { GroceryModule } from './grocery/grocery.module';
         synchronize: true,
       }),
     }),
-    GroceryModule, // This handles the Controller and Service for you
+    GroceryModule,
+    OrdersModule, // This handles the Controller and Service for you
   ],
   controllers: [], // Keep this empty
   providers: [], // Keep this empty
