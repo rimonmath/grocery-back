@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { GroceryService } from './grocery.service';
 import { CreateGroceryItemDto } from './dto/create-grocery-item.dto';
+import { UpdateGroceryItemDto } from './dto/update-grocery-item.dto';
 
 @Controller('admin/groceries') // Sets the base route to /admin/groceries
 export class GroceryController {
@@ -28,7 +29,7 @@ export class GroceryController {
   @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updateDto: Partial<CreateGroceryItemDto>,
+    @Body() updateDto: UpdateGroceryItemDto, // Use the class here
   ) {
     return this.groceryService.update(id, updateDto);
   }
