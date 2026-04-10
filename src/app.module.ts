@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GroceryModule } from './grocery/grocery.module';
 import { OrdersModule } from './orders/orders.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { UsersModule } from './users/users.module';
     }),
     GroceryModule,
     OrdersModule,
-    UsersModule, // This handles the Controller and Service for you
+    UsersModule,
+    AuthModule, // This handles the Controller and Service for you
   ],
   controllers: [], // Keep this empty
   providers: [], // Keep this empty
