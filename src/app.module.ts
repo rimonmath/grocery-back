@@ -5,6 +5,7 @@ import { GroceryModule } from './grocery/grocery.module';
 import { OrdersModule } from './orders/orders.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { UsersSeeder } from './users/user.seeder';
 
 @Module({
   imports: [
@@ -31,6 +32,6 @@ import { AuthModule } from './auth/auth.module';
     AuthModule, // This handles the Controller and Service for you
   ],
   controllers: [], // Keep this empty
-  providers: [], // Keep this empty
+  providers: [UsersSeeder], // Keep this empty
 })
 export class AppModule {}
