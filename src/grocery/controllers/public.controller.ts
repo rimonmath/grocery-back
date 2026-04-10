@@ -2,8 +2,8 @@ import { Controller, Get } from '@nestjs/common';
 import { GroceryService } from '../grocery.service';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
-@ApiTags('public/items')
-@Controller('public/items') // Full path: /api/public/items
+@ApiTags('public/groceries')
+@Controller('public/groceries') // Full path: /api/public/groceries
 export class PublicGroceryController {
   constructor(private readonly groceryService: GroceryService) {}
 
