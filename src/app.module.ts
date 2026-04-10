@@ -1,16 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { GroceryController } from './grocery/grocery.controller';
-import { GroceryService } from './grocery/grocery.service';
+import { GroceryModule } from './grocery/grocery.module';
 
 @Module({
   imports: [
-    // Load .env file
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // Async configuration for TypeORM
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -21,12 +18,13 @@ import { GroceryService } from './grocery/grocery.service';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        autoLoadEntities: true, // Automatically find our @Entity files
-        synchronize: true, // Set to false in production!
+        autoLoadEntities: true,
+        synchronize: true,
       }),
     }),
+    GroceryModule, // This handles the Controller and Service for you
   ],
-  controllers: [GroceryController],
-  providers: [GroceryService],
+  controllers: [], // Keep this empty
+  providers: [], // Keep this empty
 })
 export class AppModule {}
