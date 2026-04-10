@@ -70,6 +70,19 @@ $ mau deploy
 
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
+## Credentials
+
+### 🛠️ Automatic Database Seeding
+
+The application detects an empty database on startup and automatically seeds initial accounts for testing.
+
+| Role      | Email               | Password   | Permissions                           |
+| :-------- | :------------------ | :--------- | :------------------------------------ |
+| **Admin** | `admin@grocery.com` | `admin123` | Full CRUD on Groceries (`/api/admin`) |
+| **User**  | `user@grocery.com`  | `admin123` | Create Bookings (`/api/user`)         |
+
+> **Note:** For protected routes, use the `/api/auth/login` endpoint to retrieve a JWT. In Swagger, click the **Authorize** button and enter the token to unlock Admin and User endpoints.
+
 ## Resources
 
 Check out a few resources that may come in handy when working with NestJS:

@@ -26,6 +26,17 @@ async function bootstrap() {
     .setVersion('1.0')
     .addTag('groceries')
     .addTag('bookings')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
+      },
+      'access-token', // This name must match the decorator used in controllers
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
