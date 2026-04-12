@@ -80,6 +80,7 @@ The application detects an empty database on startup and automatically seeds ini
 | :-------- | :------------------ | :--------- | :------------------------------------ |
 | **Admin** | `admin@grocery.com` | `admin123` | Full CRUD on Groceries (`/api/admin`) |
 | **User**  | `user@grocery.com`  | `admin123` | Create Bookings (`/api/user`)         |
+| **User**  | `user2@grocery.com` | `admin123` | Create Bookings (`/api/user`)         |
 
 > **Note:** For protected routes, use the `/api/auth/login` endpoint to retrieve a JWT. In Swagger, click the **Authorize** button and enter the token to unlock Admin and User endpoints.
 
