@@ -141,12 +141,12 @@ export class GroceryService {
     }
   }
 
-  // Add to GroceryService
   async findAllAvailable(): Promise<GroceryItem[]> {
     return await this.groceryRepository.find({
       where: {
         inventoryCount: MoreThan(0),
       },
+      select: ['id', 'name', 'price', 'inventoryCount', 'description'],
     });
   }
 }

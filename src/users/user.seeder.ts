@@ -31,7 +31,13 @@ export class UsersSeeder implements OnApplicationBootstrap {
         role: UserRole.USER,
       });
 
-      await this.userRepository.save([admin, user]);
+      const user2 = this.userRepository.create({
+        email: 'user2@grocery.com',
+        password: hashedPassword,
+        role: UserRole.USER,
+      });
+
+      await this.userRepository.save([admin, user, user2]);
 
       console.log('✅ Seeding complete.');
       console.log('Admin: admin@grocery.com / admin123');
