@@ -16,6 +16,7 @@ import { Roles } from '../../common/decorators/roles.decorator';
 import { UserRole } from '../../users/entities/user.entity';
 import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { UpdateInventoryDto } from '../dto/update-inventory.dto';
 
 @Controller('admin/groceries') // Sets the base route to /admin/groceries
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -49,5 +50,21 @@ export class AdminGroceryController {
   @Get('/items')
   findAllAvailable() {
     return this.groceryService.findAllAvailable();
+  }
+
+  @Patch(':id/add-inventory')
+  addInventory(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateInventoryDto: UpdateInventoryDto,
+  ) {
+    return this.groceryService.addInventory(id, updateInventoryDto.count);
+  }
+
+  @Patch(':id/remove-inventory')
+  removeInventory(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateInventoryDto: UpdateInventoryDto,
+  ) {
+    return this.groceryService.removeInventory(id, updateInventoryDto.count);
   }
 }

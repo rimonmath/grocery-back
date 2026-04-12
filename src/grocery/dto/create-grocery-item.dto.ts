@@ -18,11 +18,6 @@ export class CreateGroceryItemDto {
   @Min(0.01)
   price: number;
 
-  @ApiProperty({ example: 100 })
-  @IsNumber()
-  @Min(0)
-  inventoryCount: number;
-
   @ApiProperty({ example: 'Fresh organic apples', required: false })
   @IsString()
   @IsOptional()
