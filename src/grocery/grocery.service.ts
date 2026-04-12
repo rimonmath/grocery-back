@@ -28,11 +28,19 @@ export class GroceryService {
   }
 
   // 3. Remove grocery items
-  async remove(id: number): Promise<void> {
-    const result = await this.groceryRepository.delete(id);
+  // async remove(id: number): Promise<void> {
+  //   const result = await this.groceryRepository.delete(id);
+  //   if (result.affected === 0) {
+  //     throw new NotFoundException(`Grocery item with ID ${id} not found`);
+  //   }
+  // }
+
+  async remove(id: number) {
+    const result = await this.groceryRepository.softDelete(id);
     if (result.affected === 0) {
-      throw new NotFoundException(`Grocery item with ID ${id} not found`);
+      throw new NotFoundException(`Item with ID ${id} not found`);
     }
+    return { message: 'Item soft-deleted successfully' };
   }
 
   // 4. Update details & 5. Manage inventory levels

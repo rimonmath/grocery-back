@@ -109,6 +109,9 @@ export class OrdersService {
     return await this.orderRepo.find({
       where: { user: { id: userId } },
       relations: ['items', 'items.groceryItem'],
+      // This tells TypeORM to include soft-deleted grocery items
+      // so the user can still see what they bought in the past.
+      withDeleted: true,
       order: { createdAt: 'DESC' },
     });
   }

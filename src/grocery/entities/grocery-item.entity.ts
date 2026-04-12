@@ -1,5 +1,5 @@
 // src/grocery/entities/grocery-item.entity.ts
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, DeleteDateColumn } from 'typeorm';
 import { BaseEntity } from '../../common/entities/base.entity';
 
 @Entity('grocery_items')
@@ -17,4 +17,7 @@ export class GroceryItem extends BaseEntity {
 
   @Column({ nullable: true })
   description: string;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 }
