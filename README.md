@@ -110,3 +110,23 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+
+
+
+```mermaid
+gantt
+    title OMS Development Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %d %b, %a
+
+    section Dev Team
+    Task1 - Fix Critical Issues :a1, 2026-11-25, 2026-12-01
+    Task2 - Fix All issues related sync : a2,  2026-11-26, 2026-12-04
+    Task3 - Migration data : a3, 2026-11-30, 3d
+    Task4 - Review : a4, 2026-12-07, 5d
+    Task5 - Go Live: a5, 2026-12-14, 2d
+
+
+```
